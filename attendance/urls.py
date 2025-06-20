@@ -4,6 +4,8 @@ from .views import (
     MarkAttendanceView,
     StudentAttendanceSummaryView,
     ClassAttendanceSummaryView,
+    ExportClassAttendanceCSV,
+    DashboardSummaryView,
 )
 
 urlpatterns = [
@@ -22,5 +24,13 @@ urlpatterns = [
         "class/<int:class_id>/summary/",
         ClassAttendanceSummaryView.as_view(),
         name="class-summary",
+    ),
+    path(
+        "class/<int:class_id>/export/",
+        ExportClassAttendanceCSV.as_view(),
+        name="export-csv",
+    ),
+    path(
+        "dashboard/summary/", DashboardSummaryView.as_view(), name="dashboard-summary"
     ),
 ]

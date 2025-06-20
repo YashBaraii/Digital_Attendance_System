@@ -7,6 +7,10 @@ from .serializers import SessionSerializer, AttendanceSerializer
 from users.permissions import IsTeacher, IsStudent
 from .utils import generate_qr
 from users.models import User
+from django.http import HttpResponse
+import csv
+from rest_framework.permissions import IsAdminUser
+from django.db.models import Count
 
 
 class GenerateSessionQRView(APIView):
@@ -228,5 +232,78 @@ class ClassAttendanceSummaryView(APIView):
                 "class": classroom.name,
                 "total_sessions": total_sessions,
                 "students": student_summaries,
+            }
+        )
+
+
+# Bonus Feature 2: CSV Export Endpoint
+class ExportClassAttendanceCSV(APIView):
+    permission_classes = [permissions.IsAuthenticated, IsTeacher]
+
+    def get(self, request, class_id):
+        try:
+            classroom = Classroom.objects.get(id=class_id, teacher=request.user)
+        except Classroom.DoesNotExist:
+            return Response({"error": "Class not found"}, status=404)
+
+        sessions = Session.objects.filter(classroom=classroom)
+        students = User.objects.filter(enrollment__classroom=classroom, role="student")
+
+        response = HttpResponse(content_type="text/csv")
+        response["Content-Disposition"] = (
+            f'attachment; filename="{classroom.name}_attendance.csv"'
+        )
+
+        writer = csv.writer(response)
+        writer.writerow(
+            ["Student", "Attended Sessions", "Total Sessions", "Attendance %"]
+        )
+
+        total_sessions = sessions.count()
+        for student in students:
+            attended = Attendance.objects.filter(
+                student=student, session__in=sessions
+            ).count()
+            percent = (attended / total_sessions * 100) if total_sessions else 0
+            writer.writerow(
+                [student.username, attended, total_sessions, f"{percent:.2f}%"]
+            )
+
+        return response
+
+
+# Bonus Feature 3: Dashboard Summary View - Custom Dashboard API
+
+
+class DashboardSummaryView(APIView):
+    permission_classes = [IsAdminUser]
+
+    def get(self, request):
+        total_students = User.objects.filter(role="student").count()
+        total_classes = Classroom.objects.count()
+        total_attendances = Attendance.objects.count()
+
+        # Top 5 most present students
+        top_students = (
+            Attendance.objects.values("student__username")
+            .annotate(attended=Count("id"))
+            .order_by("-attended")[:5]
+        )
+
+        # Top 5 most missed (students with lowest attendance)
+        all_students = User.objects.filter(role="student")
+        missed_data = []
+        for student in all_students:
+            attended = Attendance.objects.filter(student=student).count()
+            missed_data.append({"student": student.username, "attended": attended})
+        missed_data = sorted(missed_data, key=lambda x: x["attended"])[:5]
+
+        return Response(
+            {
+                "total_students": total_students,
+                "total_classes": total_classes,
+                "total_attendance_records": total_attendances,
+                "top_students": top_students,
+                "least_attendance": missed_data,
             }
         )
