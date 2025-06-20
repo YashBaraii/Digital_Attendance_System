@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Session
+from .models import Session, Attendance
 
 
 class SessionSerializer(serializers.ModelSerializer):
@@ -21,3 +21,10 @@ class SessionSerializer(serializers.ModelSerializer):
         if obj.qr_code_image and request:
             return request.build_absolute_uri(obj.qr_code_image.url)
         return None
+
+
+class AttendanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Attendance
+        fields = ["id", "student", "session", "status", "timestamp"]
+        read_only_fields = ["student", "timestamp"]
