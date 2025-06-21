@@ -91,10 +91,23 @@
         <li>Reports and attendance summaries available via API.</li>
       </ul>
 
-      <p><strong>Base URL:</strong> <code>http://localhost:8000/api/</code></p>
+      <p>
+        <strong>Base URL:</strong>
+        <code
+          ><a href="/http://localhost:8000/api/"
+            >http://localhost:8000/api/"></a
+          ></code
+        >
+      </p>
 
-      <a href="/docs/" class="btn">🔍 View Swagger UI</a>
-      <a href="/redoc/" class="btn" style="background-color: #6c757d"
+      <a style="text-decoration: none" href="/docs/" class="btn"
+        >🔍 View Swagger UI</a
+      >
+      <a
+        style="text-decoration: none"
+        href="/redoc/"
+        class="btn"
+        style="background-color: #6c757d"
         >📄 View Redoc</a
       >
     </div>
@@ -244,10 +257,8 @@
           – Partial update
         </li>
         <li>
-          <a
-            href="/docs/?urls.primaryName=classrooms#/classrooms/classrooms_delete_classrooms__id__delete"
-            target="_blank"
-            >DELETE /classrooms/{id}/</a
+          <a href="/api/classrooms/1/" target="_blank"
+            >DELETE /api/classrooms/{id}/</a
           >
           – Delete class
         </li>
@@ -260,51 +271,6 @@
       </ul>
     </div>
 
-    {% comment %}
-    <div class="section">
-      <h2>📷 Attendance & QR Endpoints</h2>
-      <ul>
-        <li>
-          <a
-            href="/api/attendance/classrooms/1/generate-session/"
-            target="_blank"
-            >POST /api/attendance/classrooms/{id}/generate-session/</a
-          >
-          – Generate session QR
-        </li>
-        <li>
-          <a href="/api/attendance/mark/" target="_blank"
-            >POST /api/attendance/mark/</a
-          >
-          – Submit QR and mark attendance
-        </li>
-        <li>
-          <a href="/api/attendance/student/4/summary/" target="_blank"
-            >GET /api/attendance/student/{student_id}/summary/</a
-          >
-          – Student attendance summary
-        </li>
-        <li>
-          <a href="/api/attendance/class/1/summary/"
-            >GET /api/attendance/class/{class_id}/summary/</a
-          >
-          – Class summary
-        </li>
-        <li>
-          <a href="/api/attendance/class/1/export/" target="_blank"
-            >GET /api/attendance/class/{class_id}/export/</a
-          >
-          – Export CSV
-        </li>
-        <li>
-          <a href="/api/attendance/dashboard/summary/" target="_blank"
-            >GET /api/attendance/dashboard/summary/</a
-          >
-          – System-wide summary
-        </li>
-      </ul>
-    </div>
-    {% endcomment %}
     <div class="section">
       <h2>📷 Attendance & QR Endpoints</h2>
       <ul>
@@ -367,17 +333,31 @@
           – Class summary within date range
           <strong style="color: #388e3c">[Additional]</strong>
         </li>
-        <li>
+        <li
+          style="
+            background: #e3f2fd;
+            padding: 8px;
+            border-left: 4px solid #2196f3;
+          "
+        >
           <a href="/api/attendance/class/1/export/" target="_blank">
             GET /api/attendance/class/{class_id}/export/
           </a>
           – Export attendance CSV
+          <strong style="color: #1976d2">[BONUS]</strong>
         </li>
-        <li>
+        <li
+          style="
+            background: #e3f2fd;
+            padding: 8px;
+            border-left: 4px solid #2196f3;
+          "
+        >
           <a href="/api/attendance/dashboard/summary/" target="_blank">
             GET /api/attendance/dashboard/summary/
           </a>
           – System-wide attendance summary
+          <strong style="color: #1976d2">[BONUS]</strong>
         </li>
       </ul>
     </div>

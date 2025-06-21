@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 
 
+# QR Code Generation for Attendance Sessions
 def generate_qr(session):
     data = str(session.session_id)
     qr = qrcode.make(data)

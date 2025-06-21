@@ -7,6 +7,7 @@ from classroom.models import Classroom
 from attendance.models import Session, Attendance
 
 
+# Test cases for user registration functionality in the Digital Attendance System
 class UserRegistrationTest(TestCase):
     def setUp(self):
         self.client = APIClient()

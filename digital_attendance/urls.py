@@ -35,18 +35,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from .views import home
 
-# schema_view = get_schema_view(
-#     openapi.Info(
-#         title="Digital Attendance System API Documentation",
-#         default_version="v1",
-#         description="Backend API for QR-based class attendance system",
-#         contact=openapi.Contact(email="yashbarai2308@gmail.com"),
-#         authentication_classes=[],
-#     ),
-#     public=True,
-#     permission_classes=[permissions.AllowAny],
-# )
-
+# URL configuration for digital_attendance project.
 schema_view = get_schema_view(
     openapi.Info(
         title="Digital Attendance System API Documentation",

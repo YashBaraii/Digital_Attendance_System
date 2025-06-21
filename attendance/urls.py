@@ -25,11 +25,13 @@ urlpatterns = [
         ClassAttendanceSummaryView.as_view(),
         name="class-summary",
     ),
+    # Bonus Feature 2: Export Class Attendance as CSV
     path(
         "class/<int:class_id>/export/",
         ExportClassAttendanceCSV.as_view(),
         name="export-csv",
     ),
+    # Bonus Feature 3: Dashboard Summary View
     path(
         "dashboard/summary/", DashboardSummaryView.as_view(), name="dashboard-summary"
     ),

@@ -78,7 +78,7 @@ WSGI_APPLICATION = "digital_attendance.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# Database
+# Database configuration using environment variables
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -132,12 +132,24 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
+# REST Framework settings
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.UserRateThrottle",
+        "rest_framework.throttling.AnonRateThrottle",
+    ],
+    "DEFAULT_THROTTLE_RATES": {
+        "user": "1000/day",  # Authenticated users can make 1000 requests per day
+        "anon": "100/hour",  # Unauthenticated users can make 100 requests per hour
+        "qr_generation": "7/minute",
+    },
 }
+# Throttle Handling Message
+REST_FRAMEWORK["EXCEPTION_HANDLER"] = "rest_framework.views.exception_handler"
 
 
 MEDIA_URL = "/media/"
@@ -146,15 +158,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 AUTH_USER_MODEL = "users.User"
 
 
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST = "smtp.gmail.com"
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = config("EMAIL_HOST_USER")
-# EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
-
+# Email settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
@@ -166,6 +170,7 @@ EMAIL_HOST_PASSWORD = config(
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
+# Swagger settings
 SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
         "Bearer": {

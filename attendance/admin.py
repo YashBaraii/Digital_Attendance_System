@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import Attendance, Session
 
+# Bonus Feature 3: Admin Interface for Attendance and Session Models
+
 
 @admin.register(Attendance)
 class AttendanceAdmin(admin.ModelAdmin):

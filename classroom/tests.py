@@ -7,6 +7,7 @@ from classroom.models import Classroom
 from attendance.models import Session, Attendance
 
 
+# Test case for creating a classroom
 class ClassCreationTest(TestCase):
     def setUp(self):
         self.client = APIClient()
