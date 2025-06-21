@@ -20,11 +20,20 @@ def generate_qr(session):
 
 # Bonus Feature 1: Email Notifications for Absences
 def send_absence_alert(student, classroom):
-    if student.email:
-        send_mail(
-            subject="Absence Alert",
-            message=f"You missed today's session for {classroom.name}.",
+
+    subject = "Absence Alert"
+    message = (
+        f"Dear {student.username},\n\nYou missed today's session for: {classroom.name}."
+    )
+
+    try:
+        return send_mail(
+            subject=subject,
+            message=message,
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[student.email],
-            fail_silently=True,
+            fail_silently=False,  # Enable to raise real errors for now
         )
+    except Exception as e:
+        print(f"Email sending failed: {e}")
+        return 0
