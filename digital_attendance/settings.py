@@ -164,3 +164,16 @@ EMAIL_HOST_PASSWORD = config(
     "EMAIL_HOST_PASSWORD"
 )  # Not your Gmail login, use App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": 'JWT Authorization header using the Bearer scheme. Example: "Bearer <your token>"',
+        }
+    },
+    "USE_SESSION_AUTH": False,
+}

@@ -1,0 +1,1327 @@
+{
+	"info": {
+		"_postman_id": "a4f7e81c-8039-4df2-bb69-5393e4ef1b74",
+		"name": "Digital_Attendance_System_API_Testing_Workflow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42759492",
+		"_collection_link": "https://test55-1090.postman.co/workspace/digital_attendance_system~d77ecade-256c-425d-a005-3b73181d506c/collection/42759492-a4f7e81c-8039-4df2-bb69-5393e4ef1b74?action=share&source=collection_link&creator=42759492"
+	},
+	"item": [
+		{
+			"name": "Attendance",
+			"item": [
+				{
+					"name": "Teacher",
+					"item": [
+						{
+							"name": "Generate QR Code",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDMxNzcwLCJpYXQiOjE3NTA0MzE0NjAsImp0aSI6IjEzYTQ1MTI0OWNjOTQ2NjJhMjFiZDQxN2Q3YzEyZGFjIiwidXNlcl9pZCI6Mywicm9sZSI6InRlYWNoZXIifQ.MOyvahiP1DZjVzay6odley_vOXEnEyr1rcOXv2Eughk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/attendance/classrooms/1/generate-session/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"attendance",
+										"classrooms",
+										"1",
+										"generate-session",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Student Summary",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDM0NDg2LCJpYXQiOjE3NTA0MzM3MTUsImp0aSI6ImU5ZDU3NGQ1N2FkYTQxZmQ4OWZiNDE2OTE1NWZkOWNlIiwidXNlcl9pZCI6Mywicm9sZSI6InRlYWNoZXIifQ.76n-ecfF6nfFXedpMjvqernOUh9rpjRVWo-iUI29DzA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/attendance/student/4/summary/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"attendance",
+										"student",
+										"4",
+										"summary",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Class Summary",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDM0NDg2LCJpYXQiOjE3NTA0MzM3MTUsImp0aSI6ImU5ZDU3NGQ1N2FkYTQxZmQ4OWZiNDE2OTE1NWZkOWNlIiwidXNlcl9pZCI6Mywicm9sZSI6InRlYWNoZXIifQ.76n-ecfF6nfFXedpMjvqernOUh9rpjRVWo-iUI29DzA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/attendance/class/1/summary/?start_date=2025-06-01&end_date=2025-06-15",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"attendance",
+										"class",
+										"1",
+										"summary",
+										""
+									],
+									"query": [
+										{
+											"key": "start_date",
+											"value": "2025-06-01"
+										},
+										{
+											"key": "end_date",
+											"value": "2025-06-15"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student",
+					"item": [
+						{
+							"name": "Attendance Tracking",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDMyNjQ5LCJpYXQiOjE3NTA0MzIzMzksImp0aSI6IjNkYWVmMmMyNmZlZTQwZjI4ZGUzNjJlNDkyMTFhOWIwIiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.J6ej64mOKwjemwqk9jY8NjBxSrbQC-AOdsRBMSy-E9Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"session_id\": \"49f30d8b-3e4f-44e7-87b3-fbb88223541a\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/attendance/mark/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"attendance",
+										"mark",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Student Summary",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNTEyOTk2LCJpYXQiOjE3NTA1MTI2ODMsImp0aSI6ImVkY2U2OGUyYWJlZjQ1ZTc5ZjU1ZGE4NWM3N2U4N2I4IiwidXNlcl9pZCI6MTMsInJvbGUiOiJzdHVkZW50In0.LoDvm5iyzy7kbZ5KRRTczkV_peNZeAndNKhCeUhcn5c",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/attendance/student/4/summary/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"attendance",
+										"student",
+										"4",
+										"summary",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Dashboard Summary",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDM2MTc4LCJpYXQiOjE3NTA0MzU4NjMsImp0aSI6IjFiZDRlZmFlNjE5MTRiNmY4NjkzZWY3MzcyOGUwN2MxIiwidXNlcl9pZCI6NSwicm9sZSI6IiJ9.CLNXdsHTyy8LuVzqQogNdmWWYHIUJDP69ZCzkeHeYLk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/attendance/dashboard/summary/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"attendance",
+										"dashboard",
+										"summary",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Classrooms",
+			"item": [
+				{
+					"name": "Teachers",
+					"item": [
+						{
+							"name": "Create classroom",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI0ODIwLCJpYXQiOjE3NTA0MjQ1MDksImp0aSI6IjhkMmQ2MjBjMjhkZTQ1Y2VhOGUyNzE4MmM0NWEzNzM1IiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.KwRa_1buCeny4FaVTPEm7ghWFEazmPigmgWSddOXAtQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Science 101\",\r\n  \"subject\": \"Science\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get classroom details",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDMxNTczLCJpYXQiOjE3NTA0MzEwNDAsImp0aSI6IjI2ZjE3NjZmMDg0NTQ3ZjM4MDliMjhkZWQxMWRkZjQ3IiwidXNlcl9pZCI6Mywicm9sZSI6InRlYWNoZXIifQ._j5P6SSKIp6FBNWvAKqCpUPZDNUPTUFvmIAmyWKW3aU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Classrooms details by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI0MzI0LCJpYXQiOjE3NTA0MjM5NTIsImp0aSI6ImQ2Yzg0YTMyNzdjOTQ0YmViNzQyNWNlYjEzY2UyMTAyIiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.A4zX__D9q6FTm9Z8lR8Zdeqq5tsgUWSwtxl2fF75viA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI0MTQ4LCJpYXQiOjE3NTA0MjMwOTcsImp0aSI6ImE1MDQ3ODZmMWFkMjQ1OGFhNmY2MmEwZjUwMmQ4ZDNkIiwidXNlcl9pZCI6Mywicm9sZSI6InRlYWNoZXIifQ.v-IIZH5QAtyXuFFN-v_-JJyrJQ3k1aYFfEYwUgBDfwc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Advanced Math\",\r\n  \"subject\": \"Mathematics\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/2/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										"2",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Classrooms details by id Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI0ODIwLCJpYXQiOjE3NTA0MjQ1MDksImp0aSI6IjhkMmQ2MjBjMjhkZTQ1Y2VhOGUyNzE4MmM0NWEzNzM1IiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.KwRa_1buCeny4FaVTPEm7ghWFEazmPigmgWSddOXAtQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Advanced Math\",\r\n  \"subject\": \"Mathematics\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Students",
+					"item": [
+						{
+							"name": "Get classroom details for stud",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI0NDc5LCJpYXQiOjE3NTA0MjQxNzAsImp0aSI6ImU3MTg1YWVhZjg3NTRiNWI4NmE5OTIyNDFjN2I3NDFiIiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.iBrMqVyaOtcJeDX_4w08v-_QO1RZRtY-PkvzevZOpyk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Classrooms details by id for stud",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI0MzI0LCJpYXQiOjE3NTA0MjM5NTIsImp0aSI6ImQ2Yzg0YTMyNzdjOTQ0YmViNzQyNWNlYjEzY2UyMTAyIiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.A4zX__D9q6FTm9Z8lR8Zdeqq5tsgUWSwtxl2fF75viA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Enroll in Classroom",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI1MDU4LCJpYXQiOjE3NTA0MjQ3NDgsImp0aSI6ImFhMjRkODQ0MGVmMTQ3OTE5OTVjZTVhMTRjZDY1ZWU4IiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.tb2E_Vf11QNXh9MQTS3xZ6oaWbRwXrTXsOoLXwjtjJs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/1/enroll/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										"1",
+										"enroll",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Students",
+					"item": [
+						{
+							"name": "Get classroom details for stud",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI0NDc5LCJpYXQiOjE3NTA0MjQxNzAsImp0aSI6ImU3MTg1YWVhZjg3NTRiNWI4NmE5OTIyNDFjN2I3NDFiIiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.iBrMqVyaOtcJeDX_4w08v-_QO1RZRtY-PkvzevZOpyk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Classrooms details by id for stud",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI0MzI0LCJpYXQiOjE3NTA0MjM5NTIsImp0aSI6ImQ2Yzg0YTMyNzdjOTQ0YmViNzQyNWNlYjEzY2UyMTAyIiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.A4zX__D9q6FTm9Z8lR8Zdeqq5tsgUWSwtxl2fF75viA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Enroll in Classroom",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNDI1MDU4LCJpYXQiOjE3NTA0MjQ3NDgsImp0aSI6ImFhMjRkODQ0MGVmMTQ3OTE5OTVjZTVhMTRjZDY1ZWU4IiwidXNlcl9pZCI6NCwicm9sZSI6InN0dWRlbnQifQ.tb2E_Vf11QNXh9MQTS3xZ6oaWbRwXrTXsOoLXwjtjJs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/classrooms/1/enroll/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"classrooms",
+										"1",
+										"enroll",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Teachers",
+					"item": [
+						{
+							"name": "Register User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"teacher1\",\r\n  \"email\": \"teacher1@example.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"role\": \"teacher\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/register/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtain JWT",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"teacher1\",\r\n  \"password\": \"Test@1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/token/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"token",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Token",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MDU5NjEyMywiaWF0IjoxNzUwNTA5NzIzLCJqdGkiOiI1YmQ5OTY5Y2E5MzI0NzU1OWU2YWU1MGFkOGMxNTg2MyIsInVzZXJfaWQiOjMsInJvbGUiOiJ0ZWFjaGVyIn0.7eCa86JpEVlwBHVIMKz1SmJnNrl32c3wjzook1My7UE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/token/refresh/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"token",
+										"refresh",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Refresh Token",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MDU5NjEyMywiaWF0IjoxNzUwNTA5NzIzLCJqdGkiOiI1YmQ5OTY5Y2E5MzI0NzU1OWU2YWU1MGFkOGMxNTg2MyIsInVzZXJfaWQiOjMsInJvbGUiOiJ0ZWFjaGVyIn0.7eCa86JpEVlwBHVIMKz1SmJnNrl32c3wjzook1My7UE\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/auth/token/refresh/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"auth",
+												"token",
+												"refresh",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 21 Jun 2025 12:42:14 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "POST, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "264"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNTEwMDM0LCJpYXQiOjE3NTA1MDk3MjMsImp0aSI6ImE5NDZhZTljZTVjNzQ4YmRiNmFjMjhjZjY4ZmJhMTM3IiwidXNlcl9pZCI6Mywicm9sZSI6InRlYWNoZXIifQ.KtZ0nurTk7cQs1aTKkDBlxdB8vNZ739HTto_2fcOmcs\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Student",
+					"item": [
+						{
+							"name": "Register User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"student1\",\r\n  \"email\": \"student1@example.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"role\": \"student\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/register/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtain JWT",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"student1\",\r\n  \"password\": \"Test@1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/token/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"token",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Token",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MDUxODczOSwiaWF0IjoxNzUwNDMyMzM5LCJqdGkiOiI5NWIwMjBjMmZhMjg0ZmVhYjkwMmQ0ZTJmODI4MTQwNyIsInVzZXJfaWQiOjQsInJvbGUiOiJzdHVkZW50In0.Vmxy5wqR8cCjJOXzOr5w2WYjHpyTdpGRdukpyvJQo0Y\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/token/refresh/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"token",
+										"refresh",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Obtain JWT Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"yash\",\r\n  \"password\": \"yash123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/token/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"token",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Token Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MDUyMjI2MywiaWF0IjoxNzUwNDM1ODYzLCJqdGkiOiIyMzU5MGNhNjA1YzM0Yjk3YTUxZDNlNTU2ODZjYjc0YiIsInVzZXJfaWQiOjUsInJvbGUiOiIifQ.J5vcyfvDp9rdM2HM9--pQuBur5d7aUBdMo2ZUIlhj-w\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/token/refresh/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"token",
+										"refresh",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Obtain JWT Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"yash\",\r\n  \"password\": \"yash123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/token/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"token",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Token Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MDUyMjI2MywiaWF0IjoxNzUwNDM1ODYzLCJqdGkiOiIyMzU5MGNhNjA1YzM0Yjk3YTUxZDNlNTU2ODZjYjc0YiIsInVzZXJfaWQiOjUsInJvbGUiOiIifQ.J5vcyfvDp9rdM2HM9--pQuBur5d7aUBdMo2ZUIlhj-w\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/auth/token/refresh/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"token",
+										"refresh",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CSV Export",
+			"item": [
+				{
+					"name": "Teacher",
+					"item": [
+						{
+							"name": "Export to csv",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNTEwMDM0LCJpYXQiOjE3NTA1MDk3MjMsImp0aSI6ImE5NDZhZTljZTVjNzQ4YmRiNmFjMjhjZjY4ZmJhMTM3IiwidXNlcl9pZCI6Mywicm9sZSI6InRlYWNoZXIifQ.KtZ0nurTk7cQs1aTKkDBlxdB8vNZ739HTto_2fcOmcs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/attendance/class/1/export/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"attendance",
+										"class",
+										"1",
+										"export",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Teacher",
+					"item": [
+						{
+							"name": "Export to csv",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNTEwMDM0LCJpYXQiOjE3NTA1MDk3MjMsImp0aSI6ImE5NDZhZTljZTVjNzQ4YmRiNmFjMjhjZjY4ZmJhMTM3IiwidXNlcl9pZCI6Mywicm9sZSI6InRlYWNoZXIifQ.KtZ0nurTk7cQs1aTKkDBlxdB8vNZ739HTto_2fcOmcs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/attendance/class/1/export/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"attendance",
+										"class",
+										"1",
+										"export",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
