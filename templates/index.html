@@ -3,24 +3,94 @@
   <head>
     <meta charset="UTF-8" />
     <title>Digital Attendance System – API Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
-        font-family: "Segoe UI", sans-serif;
-        background-color: #f5f7fa;
-        padding: 30px;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(to right, #f9f9f9, #e3f2fd);
+        margin: 0;
+        padding: 0;
         color: #333;
+      }
+      .container {
+        max-width: 960px;
+        margin: 40px auto;
+        padding: 0 20px;
+        animation: fadeIn 1.2s ease-in;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       h1,
       h2,
       h3 {
-        color: #2c3e50;
+        color: #1a237e;
+        margin-bottom: 20px;
       }
       .section {
-        background: #fff;
-        padding: 20px;
-        margin-bottom: 30px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        margin-bottom: 40px;
+      }
+      ul {
+        list-style: none;
+        padding-left: 15;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        background: #0d47a1;
+        color: white;
+        border-radius: 6px;
+        margin-right: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        background: #1565c0;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(13, 71, 161, 0.3);
+      }
+      code {
+        background: #f0f0f0;
+        padding: 3px 6px;
+        border-radius: 4px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      th,
+      td {
+        padding: 12px 15px;
+        border: 1px solid #e0e0e0;
+      }
+      th {
+        background-color: #1e88e5;
+        color: white;
+        text-transform: uppercase;
+      }
+      .highlight {
+        background: #e8f5e9;
+        border-left: 5px solid #4caf50;
+        padding: 10px;
+        margin: 10px 0;
       }
       ul {
         list-style: circle;
@@ -74,292 +144,303 @@
     </style>
   </head>
   <body>
-    <h1>📘 Digital Attendance System – API Docs</h1>
+    <div class="container">
+      <h1>📘 Digital Attendance System – API Docs</h1>
 
-    <div class="section">
-      <h2>🎯 Project Overview</h2>
-      <p>
-        A robust backend solution built using Django and Django REST Framework
-        to manage classroom attendance via QR code scanning. Replaces outdated
-        manual processes with secure, digital automation.
-      </p>
+      <div class="section">
+        <h2>🎯 Project Overview</h2>
+        <p>
+          A robust backend solution built using Django and Django REST Framework
+          to manage classroom attendance via QR code scanning. Replaces outdated
+          manual processes with secure, digital automation.
+        </p>
 
-      <ul>
-        <li>Teachers generate QR codes to mark session attendance.</li>
-        <li>Students scan QR to mark themselves present.</li>
-        <li>Role-based access: teachers manage classes, students enroll.</li>
-        <li>Reports and attendance summaries available via API.</li>
-      </ul>
+        <ul>
+          <li>Teachers generate QR codes to mark session attendance.</li>
+          <li>Students scan QR to mark themselves present.</li>
+          <li>Role-based access: teachers manage classes, students enroll.</li>
+          <li>Reports and attendance summaries available via API.</li>
+        </ul>
 
-      <p>
-        <strong>Base URL:</strong>
-        <code
-          ><a href="/http://localhost:8000/api/"
-            >http://localhost:8000/api/"></a
-          ></code
+        <a style="text-decoration: none" href="/docs/" class="btn"
+          >🔍 View Swagger UI</a
         >
-      </p>
-
-      <a style="text-decoration: none" href="/docs/" class="btn"
-        >🔍 View Swagger UI</a
-      >
-      <a
-        style="text-decoration: none"
-        href="/redoc/"
-        class="btn"
-        style="background-color: #6c757d"
-        >📄 View Redoc</a
-      >
-    </div>
-
-    <div class="section">
-      <h2>🧩 Key Features</h2>
-      <table>
-        <tr>
-          <th>Feature</th>
-          <th>Description</th>
-          <th>Permissions</th>
-        </tr>
-        <tr>
-          <td>User Authentication</td>
-          <td>JWT-based secure login</td>
-          <td>Register, Login, Token refresh</td>
-        </tr>
-        <tr>
-          <td>Class Management</td>
-          <td>Teachers create/update/delete classes</td>
-          <td>Teacher only</td>
-        </tr>
-        <tr>
-          <td>Enrollment</td>
-          <td>Students enroll in classes</td>
-          <td>Student only</td>
-        </tr>
-        <tr>
-          <td>QR Code Generation</td>
-          <td>QR code per session UUID</td>
-          <td>Teacher only</td>
-        </tr>
-        <tr>
-          <td>Attendance Tracking</td>
-          <td>Student scans QR to mark present</td>
-          <td>Student only</td>
-        </tr>
-        <tr>
-          <td>Reports</td>
-          <td>Attendance summary by class/student</td>
-          <td>Both roles</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="section">
-      <h2>🛠️ Technologies</h2>
-      <ul>
-        <li><strong>Backend:</strong> Django, Django REST Framework</li>
-        <li><strong>Auth:</strong> Simple JWT</li>
-        <li><strong>QR Code:</strong> Pillow + qrcode</li>
-        <li><strong>Docs:</strong> Swagger via drf-yasg</li>
-        <li><strong>DB:</strong> PostgreSQL or SQLite</li>
-        <li><strong>Extras:</strong> send_mail, CSV export, admin dashboard</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🧱 Model Structures</h2>
-
-      <h3>🔐 <code>User</code> (Custom User Model)</h3>
-      <ul>
-        <li><code>username</code> – string</li>
-        <li><code>email</code> – string</li>
-        <li><code>password</code> – string (hashed)</li>
-        <li><code>role</code> – choice (teacher/student)</li>
-        <li><code>institution</code> – FK (optional)</li>
-      </ul>
-
-      <h3>🏫 <code>Classroom</code></h3>
-      <ul>
-        <li><code>name</code> – string</li>
-        <li><code>subject</code> – string</li>
-        <li><code>teacher</code> – FK to User</li>
-      </ul>
-
-      <h3>📋 <code>Enrollment</code></h3>
-      <ul>
-        <li><code>student</code> – FK to User</li>
-        <li><code>classroom</code> – FK to Classroom</li>
-      </ul>
-
-      <h3>📷 <code>Session</code></h3>
-      <ul>
-        <li><code>classroom</code> – FK to Classroom</li>
-        <li><code>session_id</code> – UUID</li>
-        <li><code>date</code> – Date</li>
-        <li><code>qr_code_image</code> – Image file</li>
-      </ul>
-
-      <h3>📝 <code>Attendance</code></h3>
-      <ul>
-        <li><code>student</code> – FK to User</li>
-        <li><code>session</code> – FK to Session</li>
-        <li><code>status</code> – string ("present")</li>
-        <li><code>timestamp</code> – DateTime</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🔐 Auth Endpoints</h2>
-      <ul>
-        <li>
-          <a href="/api/auth/register/" target="_blank">POST /auth/register/</a>
-          – Register a user
-        </li>
-        <li>
-          <a href="/api/auth/token/" target="_blank">POST /auth/token/</a>
-          – Obtain JWT
-        </li>
-        <li>
-          <a href="/auth/token/refresh/" target="_blank"
-            >POST /auth/token/refresh/</a
-          >
-          – Refresh token
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🏫 Classroom Endpoints</h2>
-      <ul>
-        <li>
-          <a href="/api/classrooms/" target="_blank">GET /api/classrooms/</a>
-          – List all classrooms
-        </li>
-        <li>
-          <a href="api/classrooms/" target="_blank">POST /api/classrooms/</a>
-          – Create a classroom
-        </li>
-        <li>
-          <a href="/api/classrooms/1/" target="_blank"
-            >GET /api/classrooms/{id}/</a
-          >
-          – View class detail
-        </li>
-        <li>
-          <a href="/api/classrooms/1/" target="_blank"
-            >PUT /api/classrooms/{id}/</a
-          >
-          – Update class
-        </li>
-        <li>
-          <a href="/api/classrooms/1/" target="_blank"
-            >PATCH /api/classrooms/{id}/</a
-          >
-          – Partial update
-        </li>
-        <li>
-          <a href="/api/classrooms/1/" target="_blank"
-            >DELETE /api/classrooms/{id}/</a
-          >
-          – Delete class
-        </li>
-        <li>
-          <a href="/api/classrooms/1/enroll/" target="_blank"
-            >POST /api/classrooms/{id}/enroll/</a
-          >
-          – Enroll student
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>📷 Attendance & QR Endpoints</h2>
-      <ul>
-        <li>
-          <a
-            href="/api/attendance/classrooms/1/generate-session/"
-            target="_blank"
-          >
-            POST /api/attendance/classrooms/{id}/generate-session/
-          </a>
-          – Generate session QR
-        </li>
-        <li>
-          <a href="/api/attendance/mark/" target="_blank">
-            POST /api/attendance/mark/
-          </a>
-          – Submit QR and mark attendance
-        </li>
-        <li>
-          <a href="/api/attendance/student/4/summary/" target="_blank">
-            GET /api/attendance/student/{student_id}/summary/
-          </a>
-          – Student attendance summary (all time)
-        </li>
-        <li
-          style="
-            background: #e8f5e9;
-            padding: 8px;
-            border-left: 4px solid #4caf50;
-          "
+        <a
+          style="text-decoration: none"
+          href="/redoc/"
+          class="btn"
+          style="background-color: #6c757d"
+          >📄 View Redoc</a
         >
-          <a
-            href="/api/attendance/student/4/summary/?start_date=2025-06-01&end_date=2025-06-15"
-            target="_blank"
+      </div>
+
+      <div class="section">
+        <h2>🧩 Key Features</h2>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>Description</th>
+            <th>Permissions</th>
+          </tr>
+          <tr>
+            <td>User Authentication</td>
+            <td>JWT-based secure login</td>
+            <td>Register, Login, Token refresh</td>
+          </tr>
+          <tr>
+            <td>Class Management</td>
+            <td>Teachers create/update/delete classes</td>
+            <td>Teacher only</td>
+          </tr>
+          <tr>
+            <td>Enrollment</td>
+            <td>Students enroll in classes</td>
+            <td>Student only</td>
+          </tr>
+          <tr>
+            <td>QR Code Generation</td>
+            <td>QR code per session UUID</td>
+            <td>Teacher only</td>
+          </tr>
+          <tr>
+            <td>Attendance Tracking</td>
+            <td>Student scans QR to mark present</td>
+            <td>Student only</td>
+          </tr>
+          <tr>
+            <td>Reports</td>
+            <td>Attendance summary by class/student</td>
+            <td>Both roles</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <h2>🛠️ Technologies</h2>
+        <ul>
+          <li><strong>Backend:</strong> Django, Django REST Framework</li>
+          <li><strong>Auth:</strong> Simple JWT</li>
+          <li><strong>QR Code:</strong> Pillow + qrcode</li>
+          <li><strong>Docs:</strong> Swagger via drf-yasg</li>
+          <li><strong>DB:</strong> PostgreSQL or SQLite</li>
+          <li>
+            <strong>Extras:</strong> send_mail, CSV export, admin dashboard
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🧱 Model Structures</h2>
+
+        <h3>🔐 <code>User</code> (Custom User Model)</h3>
+        <ul>
+          <li><code>username</code> – string</li>
+          <li><code>email</code> – string</li>
+          <li><code>password</code> – string (hashed)</li>
+          <li><code>role</code> – choice (teacher/student)</li>
+          <li><code>institution</code> – FK (optional)</li>
+        </ul>
+
+        <h3>🏫 <code>Classroom</code></h3>
+        <ul>
+          <li><code>name</code> – string</li>
+          <li><code>subject</code> – string</li>
+          <li><code>teacher</code> – FK to User</li>
+        </ul>
+
+        <h3>📋 <code>Enrollment</code></h3>
+        <ul>
+          <li><code>student</code> – FK to User</li>
+          <li><code>classroom</code> – FK to Classroom</li>
+        </ul>
+
+        <h3>📷 <code>Session</code></h3>
+        <ul>
+          <li><code>classroom</code> – FK to Classroom</li>
+          <li><code>session_id</code> – UUID</li>
+          <li><code>date</code> – Date</li>
+          <li><code>qr_code_image</code> – Image file</li>
+        </ul>
+
+        <h3>📝 <code>Attendance</code></h3>
+        <ul>
+          <li><code>student</code> – FK to User</li>
+          <li><code>session</code> – FK to Session</li>
+          <li><code>status</code> – string ("present")</li>
+          <li><code>timestamp</code> – DateTime</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🔐 Auth Endpoints</h2>
+        <ul>
+          <li>
+            <a href="/api/auth/register/" target="_blank"
+              >POST /auth/register/</a
+            >
+            – Register a user
+          </li>
+          <li>
+            <a href="/api/auth/token/" target="_blank">POST /auth/token/</a>
+            – Obtain JWT
+          </li>
+          <li>
+            <a href="/api/auth/token/refresh/" target="_blank"
+              >POST /api/auth/token/refresh/</a
+            >
+            – Refresh token
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>🏫 Classroom Endpoints</h2>
+        <ul>
+          <li>
+            <a href="/api/classrooms/" target="_blank">GET /api/classrooms/</a>
+            – List all classrooms
+          </li>
+          <li>
+            <a href="api/classrooms/" target="_blank">POST /api/classrooms/</a>
+            – Create a classroom
+          </li>
+          <li>
+            <a href="/api/classrooms/1/" target="_blank"
+              >GET /api/classrooms/{id}/</a
+            >
+            – View class detail
+          </li>
+          <li>
+            <a href="/api/classrooms/1/" target="_blank"
+              >PUT /api/classrooms/{id}/</a
+            >
+            – Update class
+          </li>
+          <li>
+            <a href="/api/classrooms/1/" target="_blank"
+              >PATCH /api/classrooms/{id}/</a
+            >
+            – Partial update
+          </li>
+          <li>
+            <a href="/api/classrooms/1/" target="_blank"
+              >DELETE /api/classrooms/{id}/</a
+            >
+            – Delete class
+          </li>
+          <li>
+            <a href="/api/classrooms/1/enroll/" target="_blank"
+              >POST /api/classrooms/{id}/enroll/</a
+            >
+            – Enroll student
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>📷 Attendance & QR Endpoints</h2>
+        <ul>
+          <li>
+            <a
+              href="/api/attendance/classrooms/1/generate-session/"
+              target="_blank"
+            >
+              POST /api/attendance/classrooms/{id}/generate-session/
+            </a>
+            – Generate session QR
+          </li>
+          <li>
+            <a href="/api/attendance/mark/" target="_blank">
+              POST /api/attendance/mark/
+            </a>
+            – Submit QR and mark attendance
+          </li>
+          <li>
+            <a href="/api/attendance/student/4/summary/" target="_blank">
+              GET /api/attendance/student/{student_id}/summary/
+            </a>
+            – Student attendance summary (all time)
+          </li>
+          <li
+            style="
+              background: #e8f5e9;
+              padding: 8px;
+              border-left: 4px solid #4caf50;
+            "
           >
-            GET /api/attendance/student/{id}/summary/?start_date=&end_date=
-          </a>
-          – Student summary within date range
-          <strong style="color: #388e3c">[Additional]</strong>
-        </li>
-        <li>
-          <a href="/api/attendance/class/1/summary/" target="_blank">
-            GET /api/attendance/class/{class_id}/summary/
-          </a>
-          – Class attendance summary (all time)
-        </li>
-        <li
-          style="
-            background: #e8f5e9;
-            padding: 8px;
-            border-left: 4px solid #4caf50;
-          "
-        >
-          <a
-            href="/api/attendance/class/1/summary/?start_date=2025-06-01&end_date=2025-06-15"
-            target="_blank"
+            <a
+              href="/api/attendance/student/4/summary/?start_date=2025-06-01&end_date=2025-06-15"
+              target="_blank"
+            >
+              GET /api/attendance/student/{id}/summary/?start_date=&end_date=
+            </a>
+            – Student summary within date range
+            <strong style="color: #388e3c">[Additional]</strong>
+          </li>
+          <li>
+            <a href="/api/attendance/class/1/summary/" target="_blank">
+              GET /api/attendance/class/{class_id}/summary/
+            </a>
+            – Class attendance summary (all time)
+          </li>
+          <li
+            style="
+              background: #e8f5e9;
+              padding: 8px;
+              border-left: 4px solid #4caf50;
+            "
           >
-            GET /api/attendance/class/{id}/summary/?start_date=&end_date=
-          </a>
-          – Class summary within date range
-          <strong style="color: #388e3c">[Additional]</strong>
-        </li>
-        <li
-          style="
-            background: #e3f2fd;
-            padding: 8px;
-            border-left: 4px solid #2196f3;
-          "
-        >
-          <a href="/api/attendance/class/1/export/" target="_blank">
-            GET /api/attendance/class/{class_id}/export/
-          </a>
-          – Export attendance CSV
-          <strong style="color: #1976d2">[BONUS]</strong>
-        </li>
-        <li
-          style="
-            background: #e3f2fd;
-            padding: 8px;
-            border-left: 4px solid #2196f3;
-          "
-        >
-          <a href="/api/attendance/dashboard/summary/" target="_blank">
-            GET /api/attendance/dashboard/summary/
-          </a>
-          – System-wide attendance summary
-          <strong style="color: #1976d2">[BONUS]</strong>
-        </li>
-      </ul>
+            <a
+              href="/api/attendance/class/1/summary/?start_date=2025-06-01&end_date=2025-06-15"
+              target="_blank"
+            >
+              GET /api/attendance/class/{id}/summary/?start_date=&end_date=
+            </a>
+            – Class summary within date range
+            <strong style="color: #388e3c">[Additional]</strong>
+          </li>
+          <li
+            style="
+              background: #e3f2fd;
+              padding: 8px;
+              border-left: 4px solid #2196f3;
+            "
+          >
+            <a href="/api/attendance/class/1/export/" target="_blank">
+              GET /api/attendance/class/{class_id}/export/
+            </a>
+            – Export attendance CSV
+            <strong style="color: #1976d2">[BONUS]</strong>
+          </li>
+          <li
+            style="
+              background: #e3f2fd;
+              padding: 8px;
+              border-left: 4px solid #2196f3;
+            "
+          >
+            <a href="/api/attendance/dashboard/summary/" target="_blank">
+              GET /api/attendance/dashboard/summary/
+            </a>
+            – System-wide attendance summary
+            <strong style="color: #1976d2">[BONUS]</strong>
+          </li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>📦 Deployment & Hosting</h2>
+        <ul>
+          <li>
+            Deployed on <strong>Render</strong> with auto-deploy from GitHub
+          </li>
+          <li>
+            Free PostgreSQL database instance attached by
+            <strong>Railway</strong>
+          </li>
+          <li>Static files handled via WhiteNoise</li>
+          <li>Environment variables configured via Render dashboard</li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
