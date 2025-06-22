@@ -283,8 +283,7 @@ Visit: http://127.0.0.1:8000
 python manage.py test
 
 ```
-
-# Optional: Visit doc/seed_data_intructions.md (For populating data)
+**Optional**: Visit doc/seed_data_intructions.md (For populating data)
 
 ---
 
