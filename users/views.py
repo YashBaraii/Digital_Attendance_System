@@ -7,9 +7,12 @@ User = get_user_model()
 
 
 # API Views for User Registration and JWT Token Generation
+
+
 class RegisterAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
+    permission_classes = []  # Allow anyone to register
 
 
 class CustomTokenObtainPairView(TokenObtainPairView):
