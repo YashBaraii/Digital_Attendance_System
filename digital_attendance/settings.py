@@ -29,7 +29,7 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 
 ##
-ALLOWED_HOSTS = ["localhost"]
+ALLOWED_HOSTS = ["localhost", "https://digital-attendance-system-28f1.onrender.com"]
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),  # Default is 5 minutes
@@ -91,7 +91,7 @@ MIDDLEWARE = [
 # For production:
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
-    #
+    "https://digital-attendance-system-28f1.onrender.com",
 ]
 
 ROOT_URLCONF = "digital_attendance.urls"
