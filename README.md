@@ -4,7 +4,9 @@ A modern, QR code–based class attendance system built using **Django**, **Djan
 
 > 🔗 **Live Demo**: [Website](https://digital-attendance-system-28f1.onrender.com/)  
 > 🔗 **Swagger API Docs**: [Website Docs](https://digital-attendance-system-28f1.onrender.com/docs) <br/>
-> 🔗 **Postman Testing Workspace**: [Workspace Link with deployed url](/)
+> 🔗 **Postman Testing Workspace**: [Workspace Link with deployed url](https://www.postman.com/test55-1090/workspace/digital-attendance-system-deployed-url)
+
+**Note**: Workspace.json contains the postman workspace link which has been used to test the api endpoints, available at docs/
 
 ---
 
@@ -36,16 +38,16 @@ Digital_Attendance_System/
 
 ## 🚀 Features
 
-🔐 Authentication - JWT-based login and registration with roles (student, teacher)  
-🧑‍🏫 Role-Based Access - Teachers manage classes, generate sessions. Students enroll and check stats  
-🏫 Class Management - Teachers create/update/delete classes  
-🧑‍🎓 Student Enrollment - Students can enroll into available classes  
-📷 QR Code Generation - Each session generates a unique scannable QR code  
-✅ Attendance Tracking - Students mark attendance via QR scanning  
-📊 Attendance Reports - Summaries by class and student  
-📤 CSV Export - Export class-wise attendance as `.csv`  
-📬 Email Alerts - Notify on absence  
-🛡️ API Throttling - Rate limiting for safety and stability
+🔐 **Authentication** - JWT-based login and registration with roles (student, teacher)  
+🧑‍🏫 **Role-Based Access** - Teachers manage classes, generate sessions. Students enroll and check stats  
+🏫 **Class Management** - Teachers create/update/delete classes  
+🧑‍🎓 **Student Enrollment** - Students can enroll into available classes  
+📷 **QR Code Generation** - Each session generates a unique scannable QR code  
+✅ **Attendance Tracking** - Students mark attendance via QR scanning  
+📊 **Attendance Reports** - Summaries by class and student  
+📤 **CSV Export** - Export class-wise attendance as `.csv`  
+📬 **Email Alerts** - Notify on absence  
+🛡️ **API Throttling** - Rate limiting for safety and stability
 
 ---
 
@@ -205,7 +207,7 @@ class Attendance(models.Model):
 
 ## ⚙️ Setup Instructions (Local)
 
-### 1. Clone Project
+1. Clone Project
 
 ```bash
 git clone https://github.com/YashBaraii/Digital_Attendance_System.git
