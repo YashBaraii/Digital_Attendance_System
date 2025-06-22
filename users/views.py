@@ -10,6 +10,7 @@ User = get_user_model()
 class RegisterAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
+    permission_classes = []  # Allow anyone to register
 
 
 class CustomTokenObtainPairView(TokenObtainPairView):
