@@ -29,7 +29,7 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 
 ##
-ALLOWED_HOSTS = ["localhost", "https://digital-attendance-system-28f1.onrender.com"]
+ALLOWED_HOSTS = ["localhost", "digital-attendance-system-28f1.onrender.com"]
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),  # Default is 5 minutes
