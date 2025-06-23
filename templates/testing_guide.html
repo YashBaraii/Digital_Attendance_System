@@ -137,11 +137,22 @@
       <div class="step">
         <strong>1. Register Users</strong><br />
         Endpoint: <code>POST /api/auth/register/</code>
+
+        <p><u>a. Register a Teacher</u></p>
         <div class="code-container">
           <button class="copy-btn" onclick="copyCode(this)">Copy</button>
           <div class="code">
-            { "username": "teacher1", "email": "teacher1@example.com",
+            { "username": "demo_teacher", "email": "demo_teacher@example.com",
             "password": "Test@123", "role": "teacher" }
+          </div>
+        </div>
+
+        <p><u>b. Register a Student</u></p>
+        <div class="code-container">
+          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          <div class="code">
+            { "username": "demo_student", "email": "demo_student@example.com",
+            "password": "Test@123", "role": "student" }
           </div>
         </div>
       </div>
@@ -152,7 +163,7 @@
         <div class="code-container">
           <button class="copy-btn" onclick="copyCode(this)">Copy</button>
           <div class="code">
-            { "username": "teacher1", "password": "Test@123" }
+            { "username": "demo_teacher", "password": "Test@123" }
           </div>
         </div>
       </div>
