@@ -33,7 +33,7 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from .views import home
+from .views import home, testing_guide
 
 # URL configuration for digital_attendance project.
 schema_view = get_schema_view(
@@ -62,4 +62,5 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
+    path("testing_guide/", testing_guide, name="testing_guide"),
 ]
