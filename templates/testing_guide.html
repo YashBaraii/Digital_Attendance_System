@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Digital Attendance System - Testing Guide</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Roboto, "Fira Code", monospace;
+        line-height: 1.6;
+        background: #f9f9f9;
+        padding: 2rem;
+        color: #333;
+      }
+      h1,
+      h2 {
+        color: #2c3e50;
+      }
+      .section {
+        background: #ffffff;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      .step {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        border-left: 4px solid #3498db;
+        background: #eef6fb;
+        position: relative;
+      }
+      .code-container {
+        position: relative;
+        margin-top: 0.5rem;
+      }
+      .code {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        font-family: "Fira Code", "Courier New", monospace;
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+      .copy-btn:hover {
+        background-color: #2980b9;
+      }
+      ul {
+        padding-left: 1.5rem;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        font-size: 1rem;
+        margin-top: 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📹 Digital Attendance System - Testing & Demo Guide</h1>
+
+    <div class="section">
+      <h2>📦 Current Database Overview</h2>
+      <ul>
+        <li><strong>Teachers:</strong> 2</li>
+        <li><strong>Students:</strong> 10</li>
+        <li><strong>Classrooms:</strong> 2</li>
+        <li><strong>Enrollments:</strong> 10 (5 in each classroom)</li>
+        <li><strong>Sessions:</strong> 10 (5 per classroom)</li>
+        <li><strong>Attendance Records:</strong> ~80% filled randomly</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🔐 Temporary Secret Storage (for Testing Only)</h2>
+      <form>
+        <label for="teacher_token">Teacher Token</label>
+        <input
+          type="text"
+          id="teacher_token"
+          placeholder="Paste teacher JWT token here"
+        />
+
+        <label for="student_token">Student Token</label>
+        <input
+          type="text"
+          id="student_token"
+          placeholder="Paste student JWT token here"
+        />
+
+        <label for="session_id">Session ID</label>
+        <input
+          type="text"
+          id="session_id"
+          placeholder="Paste latest session UUID here"
+        />
+
+        <label for="student_id">Student ID</label>
+        <input
+          type="text"
+          id="student_id"
+          placeholder="Enter student ID here"
+        />
+
+        <label for="class_id">Classroom ID</label>
+        <input
+          type="text"
+          id="class_id"
+          placeholder="Enter classroom ID here"
+        />
+      </form>
+    </div>
+
+    <div class="section">
+      <h2>🧪 Testing Steps (Sequential)</h2>
+
+      <div class="step">
+        <strong>1. Register Users</strong><br />
+        Endpoint: <code>POST /api/auth/register/</code>
+        <div class="code-container">
+          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          <div class="code">
+            { "username": "teacher1", "email": "teacher1@example.com",
+            "password": "Test@123", "role": "teacher" }
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <strong>2. Login</strong><br />
+        Endpoint: <code>POST /api/auth/token/</code>
+        <div class="code-container">
+          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          <div class="code">
+            { "username": "teacher1", "password": "Test@123" }
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <strong>3. Create Classroom</strong><br />
+        Endpoint: <code>POST /api/classrooms/</code><br />
+        Header: <code>Authorization: Bearer &lt;teacher_token&gt;</code>
+        <div class="code-container">
+          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          <div class="code">{ "name": "Physics", "subject": "Science" }</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <strong>4. Enroll Student</strong><br />
+        Endpoint: <code>POST /api/classrooms/{id}/enroll/</code><br />
+        Header: <code>Authorization: Bearer &lt;student_token&gt;</code>
+      </div>
+
+      <div class="step">
+        <strong>5. Generate QR Session</strong><br />
+        Endpoint:
+        <code>POST /api/attendance/classrooms/{id}/generate-session/</code
+        ><br />
+        Header: <code>Authorization: Bearer &lt;teacher_token&gt;</code>
+      </div>
+
+      <div class="step">
+        <strong>6. Mark Attendance</strong><br />
+        Endpoint: <code>POST /api/attendance/mark/</code><br />
+        Header: <code>Authorization: Bearer &lt;student_token&gt;</code>
+        <div class="code-container">
+          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          <div class="code">
+            { "session_id": "&lt;uuid-from-generated-session&gt;" }
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <strong>7. Student Summary</strong><br />
+        Endpoint: <code>GET /api/attendance/student/{student_id}/summary/</code>
+      </div>
+
+      <div class="step">
+        <strong>8. Class Summary</strong><br />
+        Endpoint: <code>GET /api/attendance/class/{class_id}/summary/</code>
+      </div>
+
+      <div class="step">
+        <strong>9. Export CSV</strong><br />
+        Endpoint: <code>GET /api/attendance/class/{class_id}/export/</code>
+      </div>
+
+      <div class="step">
+        <strong>10. (Optional) Date Range Filter</strong><br />
+        Endpoint:
+        <code
+          >GET
+          /api/attendance/class/{id}/summary/?start_date=YYYY-MM-DD&end_date=YYYY-MM-DD</code
+        >
+      </div>
+    </div>
+    <div class="section">
+      <h2>📧 Email Notification Test (Absent Student)</h2>
+
+      <p>
+        This test triggers an email notification to a student who is marked
+        <strong>absent</strong> for a class session. Run the following script
+        inside your Django project's shell:
+      </p>
+
+      <div class="code-container">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <div class="code">
+          python manage.py shell from users.models import User from
+          classroom.models import Classroom from attendance.utils import
+          send_absence_alert student = User.objects.get(username='gajanan')
+          teacher = User.objects.filter(role='teacher').first() classroom =
+          Classroom.objects.create(name='ai 106', subject='aii',
+          teacher=teacher) send_absence_alert(student, classroom)
+        </div>
+      </div>
+
+      <p>
+        <strong>Expected Outcome:</strong> The specified student
+        (<code>gajanan</code>) receives an email informing them about their
+        absence in the <code>ai 106</code> class.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🛠️ Admin Panel Access</h2>
+      <p>
+        You can access the Django admin dashboard to manage classrooms, sessions
+        and attendance records at:
+      </p>
+      <p>
+        <strong>URL:</strong>
+        <code>https://digital-attendance-system-28f1.onrender.com/admin/</code>
+      </p>
+
+      <p><strong>Login Credentials:</strong></p>
+      <ul>
+        <li><strong>Username:</strong> superuser</li>
+        <li><strong>Password:</strong> user123</li>
+      </ul>
+
+      <p>
+        After logging in, you'll be able to view and modify all models such as
+        Users, Classrooms, Sessions, and Attendance Records directly from the
+        web interface.
+      </p>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const code = button.nextElementSibling.innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          button.innerText = "Copied!";
+          setTimeout(() => (button.innerText = "Copy"), 1500);
+        });
+      }
+    </script>
+  </body>
+</html>
