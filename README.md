@@ -2,11 +2,12 @@
 
 A modern, QR code–based class attendance system built using **Django**, **Django REST Framework**, **JWT authentication**, and **PostgreSQL**. This project streamlines and secures student attendance using role-based access control, QR scanning, and real-time reporting.
 
-> 🔗 **Live Demo**: [Website](https://digital-attendance-system-28f1.onrender.com/)  
+> 🔗 **Live Webite**: [Website](https://digital-attendance-system-28f1.onrender.com/)  
 > 🔗 **Swagger API Docs**: [Website Docs](https://digital-attendance-system-28f1.onrender.com/docs) <br/>
-> 🔗 **Postman Testing Workspace**: [Workspace Link with deployed url](https://www.postman.com/test55-1090/workspace/digital-attendance-system-deployed-url)                                          
-> 🔗 **Testing Guide**: [Guide](https://digital-attendance-system-28f1.onrender.com/testing_guide)                                                                            
-> 🔗 **Data Seeding Automation**: [Instructions](https://github.com/YashBaraii/Digital_Attendance_System/blob/main/docs/seed_data_instructions.md)                                                
+> 🔗 **Demo Video**: [Video](https://youtu.be/BTvnGVra-9w)  
+> 🔗 **Postman Testing Workspace**: [Workspace Link with deployed url](https://www.postman.com/test55-1090/workspace/digital-attendance-system-deployed-url)  
+> 🔗 **Testing Guide**: [Guide](https://digital-attendance-system-28f1.onrender.com/testing_guide)  
+> 🔗 **Data Seeding Automation**: [Instructions](https://github.com/YashBaraii/Digital_Attendance_System/blob/main/docs/seed_data_instructions.md)
 
 **Note**: Workspace.json contains the postman workspace link which has been used to test the api endpoints, available at docs/
 
@@ -285,6 +286,7 @@ Visit: http://127.0.0.1:8000
 python manage.py test
 
 ```
+
 **Optional**: Visit doc/seed_data_intructions.md (For populating data)
 
 ---

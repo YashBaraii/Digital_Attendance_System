@@ -240,12 +240,16 @@
       <div class="code-container">
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
         <div class="code">
-          python manage.py shell from users.models import User from
-          classroom.models import Classroom from attendance.utils import
-          send_absence_alert student = User.objects.get(username='gajanan')
-          teacher = User.objects.filter(role='teacher').first() classroom =
-          Classroom.objects.create(name='ai 106', subject='aii',
-          teacher=teacher) send_absence_alert(student, classroom)
+          python .\manage.py shell <br />
+          from users.models import User <br />
+          from classroom.models <br />
+          import Classroom from attendance.utils <br />
+          import send_absence_alert <br />
+          student = User.objects.get(username='demo_student')<br />
+          teacher = User.objects.filter(role='teacher').first() <br />
+          classroom = Classroom.objects.create(name='ai 106', subject='aii',
+          teacher=teacher) <br />
+          send_absence_alert(student, classroom)<br />
         </div>
       </div>
 
