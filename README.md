@@ -4,6 +4,7 @@ A modern, QR code–based class attendance system built using **Django**, **Djan
 
 > 🔗 **Live Demo**: [Website](https://digital-attendance-system-28f1.onrender.com/)  
 > 🔗 **Swagger API Docs**: [Website Docs](https://digital-attendance-system-28f1.onrender.com/docs) <br/>
+> 🔗 **Demo Video**: [Video](https://youtu.be/BTvnGVra-9w)  
 > 🔗 **Postman Testing Workspace**: [Workspace Link with deployed url](https://www.postman.com/test55-1090/workspace/digital-attendance-system-deployed-url) <br/>
 > 🔗 **Testing Guide**: [Guide](https://digital-attendance-system-28f1.onrender.com/testing_guide) <br/>
 > 🔗 **Data Seeding Automation**: [Instructions](https://github.com/YashBaraii/Digital_Attendance_System/blob/main/docs/seed_data_instructions.md)
